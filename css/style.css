@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    max-width: 90%;
+    overflow: hidden; /* Hide overflowing content */
+    transition: transform 0.3s ease; /* Add smooth transition */
+    background-image: linear-gradient(45deg, #c28411, #1d83c7, #9fa4a8); /* Wavy gradient background */
+}
+
+.popup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #fff0 0%, #fff 80%); /* Add radial gradient background */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease; /* Add smooth transition */
+    z-index: -1; /* Behind the popup content */
+}
+
+
+.popup:hover::before {
+    opacity: 1; /* Make the gradient visible on hover */
+}
+
+.popup-content {
+    text-align: center;
+}
+
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-details td {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.contact-details {
+    width: 100%;
+    font-size: 18px;
+}
+
+.tree {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+    transition: .5s;
+}
+
+.tree li {
+    display: inline-table;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 10px;
+    transition: .5s;
+    width: auto;
+    margin: 10px;
+}
+
+.tree li::before,
+.tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 1px solid #ccc;
+    width: calc(90% - 100px);
+    height: 10px;
+    z-index: -1;
+}
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid #ccc;
+}
+
+.tree li:only-child::after,
+.tree li:only-child::before {
+    display: none;
+}
+
+.tree li:only-child {
+    padding-top: 0;
+}
+
+.tree li:first-child::before,
+.tree li:last-child::after {
+    border: 0 none;
+}
+
+.tree li:last-child::before {
+    border-right: 1px solid #ccc;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+}
+
+.tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    border-left: 1px solid #ccc;
+    width: 0;
+    height: 40px;
+}
+
+.tree li a {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: inline-grid;
+    border-radius: 5px;
+    text-decoration-line: none;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.tree li a img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px !important;
+    border-radius: 100px;
+    margin: auto;
+}
+
+.tree li a span {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 6px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+	font-size: 12px;
+}
+
+.tree li a:hover,
+.tree li a:hover i,
+.tree li a:hover span,
+.tree li a:hover+ul li a {
+    background: linear-gradient(45deg, #ff0000, #ff7f00); /* Add gradient background */
+    color: #fff; /* Change text color to white */
+    border: 1px solid #94a0b4; /* Add border */
+    box-shadow: 0 4px 6px rgba(255, 0, 0, 0.5); /* Add box shadow */
+    transition: all 0.3s ease; /* Add smooth transition */
+    text-decoration: none; /* Remove underline */
+    transform: scale(1.05); /* Add scale effect */
+}
+
+.tree li a:hover i::before,
+.tree li a:hover span::before {
+    color: #fff; /* Change icon color to white */
+}
+
+.tree li a:hover+ul li::after,
+.tree li a:hover+ul li::before,
+.tree li a:hover+ul::before,
+.tree li a:hover+ul ul::before {
+    border-color: #94a0b4;
+}
+
+.main-img {
+    width: 260px; /* Set a fixed width for all cards with additional width */
+    height: 160px; /* Set a fixed height for all cards with additional height */
+    display: block;
+    margin: 0 auto 10px; /* Center the image horizontally and add some bottom margin */
+    border-radius: 50%; /* Make the image circular */
+    font-family: 'Cascadia Mono', sans-serif;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(253, 246, 246, 0.5);
+    transition: color 0.3s ease;
+    background: linear-gradient(45deg, #c28411, #1d83c7,#9fa4a8); /* Add gradient background */
+    border: 2px solid #fff; /* Add border */
+    box-shadow: 0 4px 6px rgba(165, 165, 165, 0.5); /* Add box shadow */
+    padding: 10px; /* Add padding */
+    text-align: center; /* Center text */
+    line-height: 1.5; /* Adjust line height */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 1px; /* Add letter spacing */
+}
+
+.main-img:hover {
+    color: #ffcc00;
+    transform: scale(1.05); /* Add scale effect on hover */
+}
